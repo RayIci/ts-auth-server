@@ -8,5 +8,8 @@ public class UserId : AbstractId<Guid>
     private UserId(Guid value)
         : base(value) { }
 
-    public static UserId New => new(Guid.NewGuid());
+    public static UserId New()
+    {
+        return new UserId(Guid.NewGuid());
+    }
 }
