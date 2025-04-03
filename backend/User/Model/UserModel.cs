@@ -3,4 +3,15 @@
 
 namespace Backend.User.Model;
 
-public class UserModel { }
+public sealed class UserModel : Entity<UserId, Guid>
+{
+    public string Email { get; private set; }
+    public string PasswordHash { get; private set; }
+
+    private UserModel(UserId id, string email, string passwordHash)
+        : base(id)
+    {
+        Email = email;
+        PasswordHash = passwordHash;
+    }
+}
