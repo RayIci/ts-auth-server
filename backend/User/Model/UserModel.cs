@@ -14,4 +14,9 @@ public sealed class UserModel : Entity<UserId, Guid>
         Email = email;
         PasswordHash = passwordHash;
     }
+
+    public static UserModel create(string email, string passwordHash)
+    {
+        return new UserModel(UserId.New(), email, passwordHash);
+    }
 }
