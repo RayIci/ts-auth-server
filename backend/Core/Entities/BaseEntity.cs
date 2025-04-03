@@ -3,13 +3,13 @@
 
 namespace Backend.Core.Entities;
 
-public abstract class Entity<TId, TIdValue>
+public abstract class BaseEntity<TId, TIdValue>
     where TId : AbstractId<TIdValue>
     where TIdValue : IEquatable<TIdValue>
 {
     public TId Id { get; protected set; }
 
-    protected Entity(TId id) => Id = id;
+    protected BaseEntity(TId id) => Id = id;
 
     /// <summary>
     /// Check if two entities are equals.
@@ -20,7 +20,7 @@ public abstract class Entity<TId, TIdValue>
     public override bool Equals(object? obj)
     {
         // Two entities are the same if they have the same id
-        if (obj is not Entity<TId, TIdValue> objEntity)
+        if (obj is not BaseEntity<TId, TIdValue> objEntity)
         {
             return false;
         }

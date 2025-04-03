@@ -3,7 +3,7 @@
 
 namespace Backend.User.Model;
 
-public sealed class UserModel : Entity<UserId, Guid>
+public sealed class UserModel : BaseEntity<UserId, Guid>
 {
     public string Email { get; private set; }
     public string PasswordHash { get; private set; }
